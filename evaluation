@@ -1,0 +1,89 @@
+
+%evaluation using mean square error.
+cv1 = csvread('alldata0404.csv');
+awc1 = xlsread('debe1_mse1'); awc1 = awc1(1:13013,:);
+awc2 = xlsread('debe1_mse2'); awc2 = awc2(1:13013,:);
+anc1 = xlsread('debenoco3_mse1'); anc1 = anc1(1:13013,:);
+anc2 = xlsread('debenoco3_mse2'); anc2 = anc2(1:13013,:);
+am1 = xlsread('debe1807182_mse1'); am1 = am1(1:13013,:);
+am2 = xlsread('debe1807182_mse2');am2 = am2(1:13013,:);
+
+
+
+
+gt = [];
+%gu = {anc1,anc2,awc1,awc2,am1,am2};
+gu = {anc1(1:1000,:),anc2(1:1000,:),awc1(1:1000,:),awc2(1:1000,:),am1(1:1000,:),am2(1:1000,:)};
+for i = 1:6
+    vc = gu{i};
+    vc = diff(vc);
+    dist = sqrt(vc(:,1).^2+ vc(:,2).^2);
+    gt = horzcat(gt,dist);
+end
+
+
+gd  = [cv1(658:658+13012,1) cv1(658:658+13012,37)];
+gd = gd(1:1000,:);
+gd = diff(gd);
+gdd = sqrt(gd(:,1).^2+gd(:,2).^2);
+
+
+acv = gdd-gt;
+acv = acv.^2;
+mean(acv);
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%evaluation kl-divergence, First 10000 points
+
+awc = xlsread('debe_null_model1');awc = awc(1:10000,:);
+anc = xlsread('debenoco3');anc = anc(1:10000,:);
+am = xlsread('debe1807182');am = am(1:10000,:);
+gu = {anc,awc,am};
+
+gt=[];
+for i = 1:3
+     vc = gu{i};
+     vc = diff(vc);
+     dist = sqrt(vc(:,1).^2+ vc(:,2).^2);
+     gt = horzcat(gt,dist);
+end
+cv1 = csvread('alldata0404.csv');
+gd  = [cv1(658:658+13012,1) cv1(658:658+13012,37)];
+gd = gd(1:10000,:);
+gd = diff(gd);
+gdd = sqrt(gd(:,1).^2+gd(:,2).^2);
+
+input = [];
+input = horzcat(input,gdd,gt);
+
+
+ctot = input;
+%Where input is an already segmented time series of movement data
+%on approximately a monthly basis arranged column-wise.
+ml=[];
+for i = 1:size(ctot,2)
+    op = ctot(:,i);
+    vn = linspace(min(op),max(op),100);
+    op(op == 0) = [];
+    [a,b] = ksdensity(op);
+    ml = horzcat(ml,a');
+    %ml = horzcat(ml, m1(:,i)/sum(m1(:,i)));
+end
+
+ml2 = [];mkl=[];
+
+for j = 1:size(ctot,2)
+   kl = ((ml(:,1)+eps).*(log(ml(:,1)+eps)-log(ml(:,j)+eps)));
+   kl1 = ((ml(:,j)+eps).*(log(ml(:,j)+eps)-log(ml(:,1)+eps)));
+   kl = (kl(~isinf(kl)));
+   kl = sum(kl(~isnan(kl)));
+   kl1 = (kl1(~isinf(kl1)));
+   kl1 = sum(kl1(~isnan(kl1)));
+   ml2 = horzcat(ml2,(kl+kl1));
+end
+
+
+ %0  481.1419  372.0346  164.5456 my method performs best as it has the
+ %lowest kl divergence with reference to the ground truth
