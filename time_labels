@@ -1,0 +1,176 @@
+
+labels = [];
+h = 1;d =2;s=3;
+
+labels = vertcat(labels,repmat(h,length(herdx),1));
+
+t0 = time_matrix(1,:);t0 = double(t1);
+t1 = [t0(1:3) 16 10 49];%d
+t2 = [t0(1:3) 19 54 00];%s
+t3 = [t0(1:3) 20 34 00];%d
+t4 = [t0(1:3) 20 58 17];%s
+t5 = [t0(1:3) 23 06 00];%d
+t6 = [t0(1) 04 02 01 49 42];%s
+t7 = [t0(1) 04 02 03 18 40];%d
+t8 = [t0(1) 04 02 05 00 42];%s
+t9 = [t0(1) 04 02 06 11 00];%d
+t10 = [t0(1) 04 02 07 34 39];%s
+t11 = [t0(1) 04 02 08 11 01];
+
+
+tw=0;
+tt0 = etime(t2,t1);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t3,t2);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t4,t3);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t5,t4);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t6,t5);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t7,t6);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t8,t7);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t9,t8);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t10,t9);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t11,t10);
+labels = vertcat(labels,repmat(s,tt0,1));
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+labels = [];
+h = 1;d =2;s=3;
+
+labels = vertcat(labels,repmat(h,length(herdx),1));
+
+%160404
+t0 = time_matrix(1,:);t0 = double(t1);
+t1 = [t0(1:3) 09 31 21];d
+t2 = [t0(1:3) 09 41 16];s
+t3 = [t0(1:3) 12 29 00];d
+%t2 = [t1(1:3) 14 52 00];s
+t4 = [t0(1:3) 20 11 00];s
+t5 = [t0(1:3) 21 03 00];d
+t6 = [t0(1:3) 22 16 00];s
+t7 = [t0(1) 04 05 00 54 00];d
+t8 = [t0(1) 04 05 01 55 00];s
+t9 = [t0(1) 04 05 03 02 34];
+
+
+
+tt0 = etime(t2,t1);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t3,t2);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t4,t3);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t5,t4);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t6,t5);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t7,t6);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t8,t7);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t9,t8);
+labels = vertcat(labels,repmat(s,tt0,1));
+vall=[];vall = horzcat(vall,[herdx;vx],[herdy;vy],labels);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+labels = [];
+h = 1;d =2;s=3;
+
+labels = vertcat(labels,repmat(h,length(herdx),1));
+
+%160405
+t0 = time_matrix(1,:);t0 = double(t1);
+t1 = [t0(1:3) 16 05 29];d
+t2 = [t0(1:3) 20 58 00];s
+t3 = [t0(1:3) 21 43 00];d
+t4 = [t0(1) 04 06 00 06 00];s
+t5 = [t0(1) 04 06 00 47 00];d
+t6 = [t0(1) 04 06 02 19 00];s
+t7 = [t0(1) 04 06 05 31 00];d
+t8 = [t0(1) 04 06  08 57 00];s
+t9 = [t0(1) 04 06 10 46 03];
+
+
+tt0 = etime(t2,t1);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t3,t2);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t4,t3);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t5,t4);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t6,t5);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t7,t6);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t8,t7);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t9,t8);
+labels = vertcat(labels,repmat(s,tt0,1));
+vall=[];vall = horzcat(vall,[herdx;vx],[herdy;vy],labels);
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%160407
+labels = [];
+h = 1;d =2;s=3;
+
+labels = vertcat(labels,repmat(h,length(herdx),1));
+
+t0 = time_matrix(1,:);t0 = double(t1);
+t1 = [t0(1:3) 09 44 01];d
+t2 = [t0(1:3) 10 36 00];s
+t3 = [t0(1:3) 13 41 00];d
+t4 = [t0(1:3) 19 45 00];s
+t5 = [t0(1:3) 20 07 00];d
+t6 = [t0(1:3) 20 15 00];s
+t7 = [t0(1:3) 21 47 00];d
+t8 = [t0(1:3) 22 38 00];s
+t9 = [t0(1) 04 08 00 51 00];d
+t10 = [t0(1) 04 08 02 05 00];s
+t11 = [t0(1) 04 08 2 36 01];
+
+tt0 = etime(t2,t1);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t3,t2);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t4,t3);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t5,t4);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t6,t5);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t7,t6);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t8,t7);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t9,t8);
+labels = vertcat(labels,repmat(s,tt0,1));
+tt0 = etime(t10,t9);
+labels = vertcat(labels,repmat(d,tt0,1));
+tt0 = etime(t11,t10);
+labels = vertcat(labels,repmat(s,tt0,1));
+vall=[];vall = horzcat(vall,[herdx;vx],[herdy;vy],labels);
+
